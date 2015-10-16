@@ -36,7 +36,8 @@ SOFTWARE.
 #
 # global variables that may be used throughout this tool...
 #
-$global:logoURL = '\\whereverYourLogo\IsLocated.png'
+# replace this with your own logo, it can be a UNC path or URL...
+$global:logoURL = 'https://bodostorage1.blob.core.windows.net/wordpress/logo_microsoft_dynamics.jpg'
 $global:gpServerName = 'YourGPServerName'
 $global:gpSQLInstance = 'YourGPServerName\YourSQLInstanceNameIfAny'
 
@@ -143,7 +144,7 @@ Get-EnableDisableUserForm
     [void] [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms") 
 
     $objForm = New-Object System.Windows.Forms.Form 
-    $objForm.Text = "Unlock GP User Form"
+    $objForm.Text = "Dynamics GP User Unlock Tool"
     $objForm.AutoSize = $True
     $objForm.StartPosition = "CenterScreen"
     $objForm.BackColor = "#333333"
@@ -158,17 +159,17 @@ Get-EnableDisableUserForm
 
     # add an image
     $pictureBox = new-object Windows.Forms.PictureBox
-    $pictureBox.Width =  161
-    $pictureBox.Height =  51
+    $pictureBox.Width =  231
+    $pictureBox.Height =  60
     $pictureBox.ImageLocation = $global:logoURL
     $pictureBox.Location = New-Object Drawing.Point 10,10
     $objForm.controls.add($pictureBox)
 
     # add the GUI title
     $objLabelTitle = New-Object System.Windows.Forms.Label
-    $objLabelTitle.Location = New-Object System.Drawing.Size(220,20) 
+    $objLabelTitle.Location = New-Object System.Drawing.Size(250,20) 
     $objLabelTitle.AutoSize = $True 
-    $objLabelTitle.Text = "Unlock GP User Form"
+    $objLabelTitle.Text = "Dynamics GP User Unlock Tool"
     $Font = New-Object System.Drawing.Font("Lucida Sans Console",12,[System.Drawing.FontStyle]::Bold)
     $objLabelTitle.Font = $Font
     $objForm.Controls.Add($objLabelTitle) 
